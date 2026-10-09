@@ -1,0 +1,556 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+  
+  body { 
+  background-color: #c1c1c1;
+  color: #5c5959;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* NAVBAR */
+header {
+  background-color: #c1c1c1;
+  color: #565656;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header div {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+header nav a {
+  color: #484848;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+/* Gaya kotak pencarian agar melayang di samping tombol diskon */
+.search-form {  
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 18px !important;
+  margin: 18px 0 !important;
+  background-color: #27272700 !important;
+  color: #fff !important;
+  font-size: 16px;
+  font-weight: times new roman;
+  text-decoration: none !important;   /* hilangkan garis bawah */
+  border-radius: 8px !important;
+  position: relative;
+  z-index: 3;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.search-form {
+    position: relative;
+    top: 20px !important;           /* Disamakan dengan top .badge agar sejajar atas */
+    width: max-content;        /* Digeser ke kiri agar tidak menabrak .badge (right: 15px) */
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 4px 10px;
+    margin-left: 10px; /* Memberikan jarak dari elemen sebelumnya */
+    width: max-content; /* Lebar kotak pencarian */
+}
+
+.search-form {
+    border-radius: 20px;
+    padding: 4px 10px;
+    margin-left: 10px; /* Memberikan jarak dari elemen sebelumnya */
+    width: max-content;        /* Lebar kotak teks pencarian */
+    border: none 1px solid rgba(255, 255, 255, 0.519);     /* Warna teks pencarian disamakan dengan tema web Anda */
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    font-size: 13px;
+    width: 250px;        /* Lebar kotak teks pencarian */
+    color: #333333;      /* Warna teks pencarian disamakan dengan tema web Anda */
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #434242;      /* Warna ungu disamakan dengan tema web Anda */
+}
+
+/* Mengatur pembungkus agar semua item di dalamnya sejajar horizontal tengah */
+.container-product {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    justify-content: space !important;
+    gap: 1px;
+    margin-top: 18px;
+    width: 100%;
+}
+.add-to-cart-btn {
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.buy-now-btn {
+    background-color: #ebedef;
+    color: white;
+    border: 2px solid transparent; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nama-pembungkus-anda {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mengatur tombol agar selalu berada di bagian bawah kartu */
+.buy-now-btn {
+    background-color: #575757 !important;
+    background-color: #3b3b3b !important;
+    color: white !important;
+    border: 2px solid transparent !important; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* dorong tombol selalu ke bagian bawah kartu */
+.card-body form {
+  margin-top: auto !important;
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.add-to-cart-btn,
+.buy-now-btn {
+  height: 44px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-to-cart-btn {
+  width: 44px;
+}
+
+.buy-now-btn {
+  padding: 0 20px;
+  white-space: nowrap;
+  background: #4b4b4b2c;
+  color: #696767;
+  border: none;
+}
+
+.buy-now-btn:hover {
+    background-color: #3b3b3b7a !important;
+    border-color: #414141 !important; 
+    box-shadow: 0 0 10px rgba(71, 71, 71, 0.6) !important; 
+}
+
+.add-to-cart-btn, .buy-now-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    vertical-align: middle !important;
+    height: 50px; /* Menyamakan tinggi kedua tombol */
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+  transform: translateY(0);
+}
+
+/* Desain kotak untuk tombol ikon keranjang */
+.add-to-cart-btn {
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  transform: translateY(0);
+}
+
+.add-to-cart-btn i{
+  font-size: 18px;
+  margin-right: 5px;
+  vertical-align: middle;
+
+}
+.buy-now-btn {
+  margin-top: 10px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  transform: translateY(0);
+}
+
+.buy-now-btn {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  color: white;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  border: 2px solid transparent!important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease, box-shadow  0.3s ease !important;
+}
+
+.buy-now-btn:hover {
+    background-color: #989898 !important;
+    border-color: #6a6a6a !important;
+    box-shadow: 0 0 10px rgba(201, 201, 201, 0.5) !important;
+}
+
+
+/* HERO SECTION */
+#hero {
+  background:
+  linear-gradient(rgba(125, 125, 125, 0.5), rgba(0, 0, 0, 0.5)),
+  url("bannerr.jpg") center/cover;
+  color: #e9e9e9ae;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+  box-shadow: 0 200px 60px rgba(71, 71, 71, 0.3);
+}
+
+/* BADGE PROMO */
+.badge {
+color: #3c3b3b;
+position: absolute;
+  top: 10px;
+  right: 15px;
+  padding: 6px 14px;
+  background-color: #f7f1e3;
+  color: #595857;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  color: #3c3b3b;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+  box-shadow: 0 200px 60px rgba(71, 71, 71, 0.3);
+}
+ 
+#hero h1 {
+  font-size: 40px;
+} 
+
+#hero p {
+  font-size: 18px;
+}
+
+#hero .cta-btn,
+.cta-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 28px !important;
+  margin: 20px 0 !important;
+  background-color: #272727 !important;
+  color: #fff !important;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none !important;   /* hilangkan garis bawah */
+  border-radius: 10px !important;
+  position: relative;
+  z-index: 5;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.cta-btn:hover {
+  background-color: #3d3d3d !important;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+.cta-btn:active {
+  transform: translateY(0) scale(0.96);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+}
+/* Gaya kotak pencarian agar melayang di samping tombol diskon */
+.search-form {
+    position: absolute;
+    top: 50px;           /* Disamakan dengan top .badge agar sejajar atas */
+    right: 140px;        /* Digeser ke kiri agar tidak menabrak .badge (right: 15px) */
+    display: flex;
+    align-items: center;
+    background-color: #ffffff00;
+    border: 1px solid #bcbcbce6;
+    border-radius: 20px;
+    padding: 4px 10px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    width: 1370px;        /* Lebar kotak teks pencarian */
+}
+
+.search-button {
+    font-size: 18px !important;
+    width: 20px;
+    display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #313131;      /* Warna search logo*/
+}
+
+.search-form .search-input,
+.search-form input[type="text"],
+.search-form input {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #000 !important;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search-form .search-input::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+/* BADGE PROMO */                  
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  padding: 6px 14px;
+  background-color: #4f4f4f;
+  color: #f5f5f5;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+}                      
+
+#hero h1 {
+  font-size: 40px;
+}
+
+#hero p {
+  font-size: 18px;
+}
+
+/* SECTION UMUM */
+section {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 30px;
+  color: #363534;
+}
+
+/* FOOTER */
+footer {
+  background-color: #626261;
+  color: #232322;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* MENU/PRODUK */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 1000px;
+  margin: 30px auto 0;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Bagian Teks di Dalam Kartu */
+.card-body h3 {
+  color: #3d3c3c;
+  font-size: 18px;
+  margin: 12px 0 6px 0;
+}
+
+.card-body p {
+  color: #383636;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.card-body h4 {
+  color: #272626;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  box-shadow: 0 300px 200px rgba(36, 36, 36, 0.658);
+}
+
+/* CTA BUTTON */
+.cta-btn {
+  display: inline-block;
+  margin: 25px;
+  padding: 14px;
+  background: #282727;
+  color: #f1f0f0;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(241, 240, 239, 0.3);
+}
+.card-body .add-to-cart-btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+/* efek timbul saat di-hover */
+.add-to-cart-btn:hover {
+  transform: translateY(-5px) scale(1.08) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* efek ditekan saat di-klik */
+.add-to-cart-btn:active {
+  transform: translateY(0) scale(0.95) !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.card-body .buy-now-btn {
+  position: relative;
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease !important;
+}
+
+.card-body .buy-now-btn:hover {
+  transform: translateY(-5px) scale(1.05) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+.card-body .buy-now-btn:active {
+  transform: translateY(0) scale(0.96) !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.card-body form {
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: center;
+  gap: 12px;
+}
+
+.card-body .add-to-cart-btn,
+.card-body .buy-now-btn {
+  height: 48px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  background-color: #3d3d3d !important;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.card-body .add-to-cart-btn {
+  width: 48px !important;
+  flex: 0 0 48px;
+  font-size: 18px;
+}
+
+.card-body .add-to-cart-btn i {
+  margin: 0 !important;
+  color: #fff !important;
+}
+
+.card-body .buy-now-btn {
+  padding: 0 24px !important;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.card-body .add-to-cart-btn:hover,
+.card-body .buy-now-btn:hover {
+  background-color: #676767 !important;
+}
+
+.search-form .search-input,
+.search-form input {
+  font-family:"Helvetica Neue", georgia, Arial, Helvetica, sans-serif !important;
+  font-weight: 1000 !important;   /* 400 = normal, bukan bold */
+  font-size: 20px !important;
+}
+
+.search-form .search-input::placeholder {
+  font-family: "Helvetica Neue", georgia, Arial, Helvetica, sans-serif !important;
+  font-weight: 1000 !important;
+}
+
+
